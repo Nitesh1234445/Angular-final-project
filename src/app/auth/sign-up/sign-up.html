@@ -1,0 +1,55 @@
+<div class="auth-grid">
+  <div class="illustration">
+    <img src="assets/images/illustration.png" alt="Learning" />
+  </div>
+
+  <div class="panel">
+    <h2 class="product">Product Name</h2>
+    <h1 class="title">Sign up</h1>
+    <p class="subtitle">Enter details mentioned below</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <!-- Username -->
+      <label class="field">
+        <span>User Name</span>
+        <input type="text" formControlName="username" placeholder="Your username"/>
+        <small class="error" *ngIf="err(f['username'])">Username is required (min 3 chars).</small>
+      </label>
+
+      <!-- Email -->
+      <label class="field">
+        <span>Email</span>
+        <input type="email" formControlName="email" placeholder="you@example.com"/>
+        <small class="error" *ngIf="err(f['email'])">Please enter a valid email.</small>
+      </label>
+
+      <!-- Password with toggle -->
+      <label class="field">
+        <span>Password</span>
+        <div class="password">
+  <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="••••••••"/>
+  <button type="button" class="toggle" (click)="togglePassword()">
+    {{ showPassword ? 'Hide' : 'Show' }}
+  </button>
+</div>
+
+        <small class="hint">Min 8 chars with letters & numbers.</small>
+        <small class="error" *ngIf="err(f['password'])">Password must be at least 8 characters and include a number.</small>
+      </label>
+
+      <!-- Terms -->
+      <label class="checkbox">
+        <input type="checkbox" formControlName="terms"/>
+        <span>I agree to the terms and conditions by signing up</span>
+      </label>
+      <small class="error" *ngIf="err(f['terms'])">You must agree before registering.</small>
+
+      <button class="primary" type="submit" [disabled]="form.invalid">Register</button>
+
+      <p class="muted">
+        Already have an Account?
+        <a routerLink="/auth/login">Login</a>
+      </p>
+    </form>
+  </div>
+</div>

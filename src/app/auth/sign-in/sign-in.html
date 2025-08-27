@@ -1,0 +1,53 @@
+<div class="auth-grid">
+  <div class="illustration">
+    <img src="assets/images/illustration.png" alt="Learning" />
+  </div>
+
+  <div class="panel">
+    <h2 class="product">Product Name</h2>
+    <h1 class="title">Welcome!</h1>
+    <p class="subtitle">Sign in to your Learning account</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label class="field">
+        <span>User Name / Email</span>
+        <input
+          type="text"
+          formControlName="usernameOrEmail"
+          placeholder="username or you@example.com"
+        />
+        <small class="error" *ngIf="err(f['usernameOrEmail'])">Username/Email is required.</small>
+      </label>
+
+      <label class="field">
+        <span>Password</span>
+        <div class="password">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+            placeholder="••••••••"
+          />
+          <button type="button" class="toggle" (click)="togglePassword()">
+            {{ showPassword ? 'Hide' : 'Show' }}
+          </button>
+        </div>
+        <small class="error" *ngIf="err(f['password'])">Password is required.</small>
+      </label>
+
+      <div class="row-between">
+        <label class="checkbox">
+          <input type="checkbox" formControlName="remember" />
+          <span>Remember Me</span>
+        </label>
+        <a class="link" href="javascript:void(0)">Forgot Password?</a>
+      </div>
+
+      <button class="primary upper" type="submit" [disabled]="form.invalid">SIGN IN</button>
+
+      <p class="muted">
+        Don’t have account yet?
+        <a routerLink="/auth/register">Register now</a>
+      </p>
+    </form>
+  </div>
+</div>

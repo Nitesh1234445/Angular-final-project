@@ -1,0 +1,9 @@
+/* reuse styles from sign-up by importing it */
+@use '../sign-up/sign-up' as *;
+
+.row-between {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: -6px;
+}
+.link { color: #88e39d; text-decoration: none; font-size: 12px; }
+.upper { text-transform: uppercase; }
