@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<section class="banner">
+  <div class="hero">LOREM IPSUM DOLOR</div>
+  <div class="dots"><span></span><span></span><span></span><span></span></div>
+</section>
+
+<section class="stats">
+  <ng-container *ngIf="stats$ | async as stats">
+    <app-stat-card *ngFor="let s of stats" [label]="s.label" [value]="s.value"></app-stat-card>
+  </ng-container>
+</section>
+
+<section class="row">
+  <div class="row-head">
+    <h3>Last Viewed Courses</h3>
+    <a href="javascript:void(0)">View All</a>
+  </div>
+  <div class="carousel">
+    <ng-container *ngIf="lastViewed$ | async as items">
+      <app-course-card *ngFor="let item of items" [item]="item"></app-course-card>
+    </ng-container>
+  </div>
+</section>
+
+<section class="row">
+  <div class="row-head">
+    <h3>Newly Launched</h3>
+    <a href="javascript:void(0)">View All</a>
+  </div>
+  <div class="carousel">
+    <ng-container *ngIf="newlyLaunched$ | async as items">
+      <app-course-card *ngFor="let item of items" [item]="item"></app-course-card>
+    </ng-container>
+  </div>
+</section>
+
+<section class="row">
+  <div class="row-head">
+    <h3>Blogs</h3>
+    <a href="javascript:void(0)">View All Blogs</a>
+  </div>
+  <div class="carousel">
+    <ng-container *ngIf="blogs$ | async as items">
+      <app-blog-card *ngFor="let item of items" [item]="item"></app-blog-card>
+    </ng-container>
+  </div>
+</section>

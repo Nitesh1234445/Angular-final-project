@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators, FormGroup, AbstractControl } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { showError } from '../../shared/form-messages';
 
@@ -16,7 +16,7 @@ export class SignInComponent {
   form!: FormGroup;
   showPassword = false;
 
-  constructor(private fb: FormBuilder, private auth: AuthService) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
     this.form = this.fb.group({
       usernameOrEmail: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -34,7 +34,7 @@ export class SignInComponent {
     const { usernameOrEmail, password, remember } = this.form.getRawValue();
     try {
       this.auth.login(usernameOrEmail!, password!, !!remember);
-      alert('Logged in! (demo)');
+      this.router.navigateByUrl('/dashboard');
     } catch (e: any) {
       alert(e.message || 'Login failed');
     }

@@ -1,0 +1,85 @@
+{
+  "suggestions": [
+    "Google Data Analytics",
+    "JavaScript Essentials",
+    "Angular for Beginners",
+    "Advanced React",
+    "Cloud Fundamentals",
+    "SQL Mastery",
+    "Cybersecurity Basics",
+    "AI & ML Foundations"
+  ],
+  "stats": [
+    { "label": "My Goals", "value": 3 },
+    { "label": "Enrolled Courses", "value": 8 },
+    { "label": "Certificates Earned", "value": 2 }
+  ],
+  "lastViewed": [
+    {
+      "title": "Google Data Analytics",
+      "provider": "LinkedIn Learning",
+      "thumb": "assets/images/illustration.png",
+      "progress": 21,
+      "rating": 4.3,
+      "reviews": 133000,
+      "enrolled": 635,
+      "level": "Beginner",
+      "duration": "6 months"
+    },
+    {
+      "title": "Angular for Beginners",
+      "provider": "LinkedIn Learning",
+      "thumb": "assets/images/illustration.png",
+      "progress": 68,
+      "rating": 4.6,
+      "reviews": 78000,
+      "enrolled": 421,
+      "level": "Beginner",
+      "duration": "4 months"
+    }
+  ],
+  "newlyLaunched": [
+    {
+      "title": "Cybersecurity",
+      "provider": "LinkedIn Learning",
+      "thumb": "assets/images/illustration.png",
+      "progress": 0,
+      "rating": 4.5,
+      "reviews": 52000,
+      "enrolled": 219,
+      "level": "Intermediate",
+      "duration": "3 months"
+    },
+    {
+      "title": "AI & ML Foundations",
+      "provider": "LinkedIn Learning",
+      "thumb": "assets/images/illustration.png",
+      "progress": 0,
+      "rating": 4.7,
+      "reviews": 112000,
+      "enrolled": 980,
+      "level": "Intermediate",
+      "duration": "5 months"
+    }
+  ],
+  "blogs": [
+    {
+      "title": "Google Data Analytics",
+      "image": "assets/images/illustration.png",
+      "excerpt": "Spreadsheet, Data Analysis, SQL, Data Visualization, Data Cleansing",
+      "author": "ANU BHATT",
+      "rating": 4.3,
+      "reviews": 133000,
+      "role": "ENGINEERING MASTER"
+    },
+    {
+      "title": "Cybersecurity",
+      "image": "assets/images/illustration.png",
+      "excerpt": "Threat modeling, SOC, Blue Team practices.",
+      "author": "NAVI MALIK",
+      "rating": 4.5,
+      "reviews": 82000,
+      "role": "SECURITY ANALYST"
+    }
+  ]
+}

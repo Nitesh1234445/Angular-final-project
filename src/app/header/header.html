@@ -1,0 +1,38 @@
+<header class="hdr">
+  <div class="brand">Product Name</div>
+
+  <div class="search">
+    <span class="icon">🔍</span>
+    <input [formControl]="q" placeholder="Search Courses" />
+    <button class="clear" *ngIf="q.value" (click)="clear()">×</button>
+
+    <ul class="suggest" *ngIf="suggestions.length">
+      <li *ngFor="let s of suggestions" (click)="pick(s)">{{ s }}</li>
+    </ul>
+  </div>
+
+  <div class="right">
+    <button class="bell" title="Notifications">
+      <span class="dot"></span>
+      🔔
+    </button>
+
+    <div class="avatar" (click)="toggleDrop()">
+      <img src="https://i.pravatar.cc/40?img=5" alt="avatar" />
+      <div class="menu" *ngIf="showDrop">
+        <div class="menu-head">
+          <img src="https://i.pravatar.cc/64?img=5" alt="avatar" />
+          <div>
+            <div class="name">Harry Shimron</div>
+            <div class="role">DC Software Engineer</div>
+          </div>
+        </div>
+        <a href="javascript:void(0)">My Profile</a>
+        <a href="javascript:void(0)">Admin Console</a>
+        <a href="javascript:void(0)">My Courses</a>
+        <a href="javascript:void(0)">Blog</a>
+        <a href="javascript:void(0)">Log Out</a>
+      </div>
+    </div>
+  </div>
+</header>
