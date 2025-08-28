@@ -26,3 +26,58 @@
 }
 .carousel::-webkit-scrollbar { height: 8px; }
 .carousel::-webkit-scrollbar-thumb { background: #324148; border-radius: 999px; }
+
+/* === Search results layout next to the filter === */
+.search-layout {
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 305px 1fr; /* sidebar width + content */
+  gap: 16px;
+}
+
+/* Right content container */
+.results {
+  min-height: 844px; /* to visually align with the filter */
+  background: #1b2126;
+  border: 1px solid #2f3941;
+  border-radius: 16px;
+  padding: 16px;
+  color: #e8f5e9;
+}
+
+.results-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.results-head h3 { margin: 0; font-size: 18px; }
+.results-head .sort { color: #a7c2a9; }
+
+/* Grid of course cards on the right */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+  gap: 14px;
+}
+/* 2-column shell: sidebar (fixed 305px) + your original content */
+.page {
+  display: grid;
+  grid-template-columns: 305px 1fr;
+  gap: 16px;
+  padding: 18px;
+}
+
+/* keep the filter fixed height and let it scroll if content overflows */
+.page app-filter-sidebar {
+  position: sticky;
+  top: 12px; /* sits below header nicely */
+  align-self: start;
+}
+
+/* your existing content flows exactly as before */
+.content {
+  min-width: 0;            /* prevents overflow pushing layout */
+}
+
+/* keep your existing styles below unchanged */

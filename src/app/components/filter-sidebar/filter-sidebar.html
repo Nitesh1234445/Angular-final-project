@@ -1,0 +1,108 @@
+<aside class="filter">
+  <div class="head">
+    <div>Filter</div>
+    <button class="clear" (click)="clearAll()">Clear</button>
+  </div>
+
+  <!-- Duration -->
+  <section class="group">
+    <button class="group-head" (click)="toggle('duration')">
+      <span>Duration</span>
+      <i class="chev" [class.open]="open.duration()"></i>
+    </button>
+    <div class="group-body" *ngIf="open.duration()">
+      <label class="row" *ngFor="let o of durationOptions">
+        <input type="radio" name="duration" [value]="o.id" [formControl]="form.controls['duration']">
+        <span class="label">{{ o.label }}</span>
+        <span class="count">({{ o.count }})</span>
+      </label>
+    </div>
+  </section>
+
+  <!-- Rating -->
+  <section class="group">
+    <button class="group-head" (click)="toggle('rating')">
+      <span>Rating</span>
+      <i class="chev" [class.open]="open.rating()"></i>
+    </button>
+    <div class="group-body" *ngIf="open.rating()">
+      <label class="row" *ngFor="let r of ratingOptions">
+        <input type="radio" name="rating" [value]="r.id" [formControl]="form.controls['rating']">
+        <span class="stars" *ngIf="r.id !== 'all'">
+          <!-- star icons using inline SVG -->
+          <ng-container [ngSwitch]="r.id">
+            <span class="star-row">
+              <i class="star" *ngFor="let i of [1,2,3,4,5]; let idx = index"
+                 [class.full]="i <= Math.floor(r.stars)"
+                 [class.half]="i === Math.floor(r.stars) + 1 && r.stars % 1 >= 0.5"></i>
+            </span>
+          </ng-container>
+          <span class="label">&nbsp;{{ r.text }}</span>
+        </span>
+        <span class="label" *ngIf="r.id === 'all'">All</span>
+        <span class="count">({{ r.count }})</span>
+      </label>
+    </div>
+  </section>
+
+  <!-- Published Date -->
+  <section class="group">
+    <button class="group-head" (click)="toggle('published')">
+      <span>Published Date</span>
+      <i class="chev" [class.open]="open.published()"></i>
+    </button>
+    <div class="group-body" *ngIf="open.published()">
+      <label class="row" *ngFor="let o of publishedOptions">
+        <input type="radio" name="published" [value]="o.id" [formControl]="form.controls['published']">
+        <span class="label">{{ o.label }}</span>
+        <span class="count">({{ o.count }})</span>
+      </label>
+    </div>
+  </section>
+
+  <!-- Course Level -->
+  <section class="group">
+    <button class="group-head" (click)="toggle('level')">
+      <span>Course Level</span>
+      <i class="chev" [class.open]="open.level()"></i>
+    </button>
+    <div class="group-body" *ngIf="open.level()">
+      <label class="row" *ngFor="let o of levelOptions">
+        <input type="checkbox" [checked]="isChecked('level', o.id)" (change)="onToggleArray('level', o.id)">
+        <span class="label">{{ o.label }}</span>
+        <span class="count">({{ o.count }})</span>
+      </label>
+    </div>
+  </section>
+
+  <!-- Author -->
+  <section class="group">
+    <button class="group-head" (click)="toggle('author')">
+      <span>Author</span>
+      <i class="chev" [class.open]="open.author()"></i>
+    </button>
+    <div class="group-body" *ngIf="open.author()">
+      <label class="row" *ngFor="let o of authorOptions">
+        <input type="checkbox" [checked]="isChecked('author', o.id)" (change)="onToggleArray('author', o.id)">
+        <span class="label">{{ o.label }}</span>
+        <span class="count">({{ o.count }})</span>
+      </label>
+    </div>
+  </section>
+
+  <!-- Topics -->
+  <section class="group">
+    <button class="group-head" (click)="toggle('topics')">
+      <span>Topics</span>
+      <i class="chev" [class.open]="open.topics()"></i>
+    </button>
+    <div class="group-body" *ngIf="open.topics()">
+      <label class="row" *ngFor="let o of topicOptions">
+        <input type="checkbox" [checked]="isChecked('topics', o.id)" (change)="onToggleArray('topics', o.id)">
+        <span class="label">{{ o.label }}</span>
+        <span class="count">({{ o.count }})</span>
+      </label>
+    </div>
+  </section>
+
+</aside>
