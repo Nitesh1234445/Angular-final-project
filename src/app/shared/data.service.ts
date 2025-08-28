@@ -13,4 +13,14 @@ export class DataService {
   lastViewed(): Observable<any[]> { return this.db$.pipe(map(d => d.lastViewed)); }
   newlyLaunched(): Observable<any[]> { return this.db$.pipe(map(d => d.newlyLaunched)); }
   blogs(): Observable<any[]> { return this.db$.pipe(map(d => d.blogs)); }
+
+  getCourseBySlug(slug: string) {
+  // We have one sample file; in real app we'd fetch by slug.
+  return this.http.get<any>('assets/data/course-details.json');
+}
+
+getRelatedCourses() {
+  return this.http.get<any>('assets/data/course-details.json').pipe(map(d => d.related));
+}
+
 }

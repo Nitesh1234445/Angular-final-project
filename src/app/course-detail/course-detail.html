@@ -1,0 +1,128 @@
+<div class="wrap" *ngIf="course$ | async as c">
+  <!-- Breadcrumb -->
+  <nav class="crumbs">
+    <a [routerLink]="['/dashboard']">Home</a>
+    <span>›</span>
+    <span>{{ c.breadcrumb[1] }}</span>
+  </nav>
+
+  <!-- Banner -->
+  <header class="banner">
+    <h1 class="title" [innerText]="c.title"></h1>
+    <p class="tagline">{{ c.tagline }}</p>
+    <div class="authors">
+      Created by
+      <ng-container *ngFor="let a of c.authors; let last = last">
+        <a [href]="a.link">{{ a.name }}</a><span *ngIf="!last">, </span>
+      </ng-container>
+    </div>
+
+    <div class="cta-row">
+      <button class="cta">{{ c.cta }}</button>
+      <div class="enrolled">{{ c.enrolledCount | number }} already enrolled</div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="metrics">
+      <div class="m"><div class="label">Level</div><div class="value">{{ c.metrics.level }}</div></div>
+      <div class="sep"></div>
+      <div class="m"><div class="label">Rating</div><div class="value">{{ c.metrics.rating }} ★ ({{ c.metrics.reviews | number }} reviews)</div></div>
+      <div class="sep"></div>
+      <div class="m"><div class="label">Duration</div><div class="value">{{ c.metrics.duration }}</div></div>
+      <div class="sep"></div>
+      <div class="m"><div class="label">Flexible Schedule</div><div class="value">{{ c.metrics.schedule }}</div></div>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="tabs">
+    <button [class.active]="tab() === 'overview'" (click)="toggleTab('overview')">Overview</button>
+    <button [class.active]="tab() === 'content'" (click)="toggleTab('content')">Course Content</button>
+    <button [class.active]="tab() === 'author'" (click)="toggleTab('author')">Author Details</button>
+    <button [class.active]="tab() === 'testimonials'" (click)="toggleTab('testimonials')">Testimonials</button>
+  </nav>
+
+  <!-- Tab Panels -->
+  <section *ngIf="tab() === 'overview'" class="panel">
+    <h3>What you'll learn</h3>
+    <ul class="bullets">
+      <li *ngFor="let item of c.overview.learn">{{ item }}</li>
+    </ul>
+
+    <h3>Skills you'll gain</h3>
+    <div class="chips">
+      <span class="chip" *ngFor="let s of c.overview.skills">{{ s }}</span>
+    </div>
+
+    <h3>Requirements</h3>
+    <ul class="bullets">
+      <li *ngFor="let r of c.overview.requirements">{{ r }}</li>
+    </ul>
+
+    <h3>Description</h3>
+    <p class="desc">{{ c.overview.description }}</p>
+  </section>
+
+  <section *ngIf="tab() === 'content'" class="panel">
+    <div class="content-head">
+      <div>{{ c.contentSummary.sections }} Sections • {{ c.contentSummary.lectures }} Lectures • {{ c.contentSummary.length }} total length</div>
+      <a class="expand" (click)="expandAll(c.content)">Expand all sections</a>
+    </div>
+
+    <div class="accordion">
+      <div class="sec" *ngFor="let sec of c.content; let i = index">
+        <button class="sec-head" (click)="toggleSection(i)">
+          <span class="caret" [class.open]="expanded()[i]"></span>
+          <span class="t">{{ sec.title }}</span>
+          <span class="sum">{{ sec.summary }}</span>
+        </button>
+        <div class="sec-body" *ngIf="expanded()[i]">
+          <div class="lec" *ngFor="let l of sec.lectures">
+            <span class="dot">•</span>
+            <span class="lt">{{ l.title }}</span>
+            <span class="dur">{{ l.duration }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section *ngIf="tab() === 'author'" class="panel">
+    <h3>Author</h3>
+    <div class="author-name">{{ c.author.name }}</div>
+    <div class="author-title">{{ c.author.title }}</div>
+    <div class="bio">
+      <p *ngFor="let p of c.author.bio">{{ p }}</p>
+    </div>
+    <div class="faq" *ngFor="let f of c.author.faq">
+      <div class="q">FAQ: {{ f.q }}</div>
+      <div class="a">{{ f.a }}</div>
+    </div>
+  </section>
+
+  <section *ngIf="tab() === 'testimonials'" class="panel">
+    <div class="tgrid">
+      <app-testimonial-card *ngFor="let t of c.testimonials" [item]="t"></app-testimonial-card>
+    </div>
+  </section>
+
+  <!-- Related Courses -->
+  <section class="related" *ngIf="related$ | async as rel">
+    <h3>Related Courses</h3>
+    <div class="rlist">
+      <div class="row" *ngFor="let r of rel">
+        <div class="left">
+          <img [src]="r.thumb" alt="">
+          <div>
+            <div class="rt">{{ r.title }}</div>
+            <div class="meta">{{ r.duration }} | Last updated 10/2024</div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="rating">★ {{ r.rating }} <span>({{ r.reviews | number }} reviews)</span></div>
+          <span class="badge" *ngIf="r.badge">{{ r.badge }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

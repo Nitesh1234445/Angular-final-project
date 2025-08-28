@@ -1,0 +1,118 @@
+{
+  "slug": "google-data-analytics-course-1",
+  "breadcrumb": ["Home", "Google Data Analytics"],
+  "title": "Google Data Analytics\nCourse-1",
+  "tagline": "Become a Prompt Engineering Expert. Master prompt engineering patterns, techniques, and approaches to effectively leverage Generative AI.",
+  "authors": [
+    { "name": "Stephane Maarek", "link": "#" },
+    { "name": "AWS Certified Cloud Practitioner, Solutions Architect, Developer", "link": "#" }
+  ],
+  "enrolledCount": 45908,
+  "cta": "Enroll Now",
+
+  "metrics": {
+    "level": "Beginner Level",
+    "rating": 4.8,
+    "reviews": 1278,
+    "duration": "05 Weeks",
+    "schedule": "Learn at your own pace"
+  },
+
+  "overview": {
+    "learn": [
+      "Use hands-on scenarios to analyze performance and optimize websites",
+      "Understand key analytics concepts, KPIs and actionable insights",
+      "Implement tracking and measure conversions effectively"
+    ],
+    "skills": ["Productivity","Prompt Engineering","MS Excel","Data Ethics","Document Management","Data Analysis","Data Visualization","SQL","Spreadsheets","Data Cleaning"],
+    "requirements": [
+      "No experience required — if you can use a web browser, you’re good to go!"
+    ],
+    "description": "Quickly master Google Analytics with this hands-on, scenario-driven course, and start improving the performance of your website today! You’ll go from beginner to advanced as we walk through setup, reporting, and actionable insights."
+  },
+
+  "contentSummary": { "sections": 7, "lectures": 25, "length": "18h 30m" },
+  "content": [
+    {
+      "title": "Introduction",
+      "summary": "5 Lectures • 15 mins",
+      "lectures": [
+        { "title": "Course Overview", "duration": "03:00" },
+        { "title": "Google Analytics Overview", "duration": "03:00" },
+        { "title": "How to Set Up a Google Analytics Demo Account", "duration": "03:00" }
+      ]
+    },
+    {
+      "title": "Google Analytics Dictionary - The Top 50 Terms to Know",
+      "summary": "2 Lectures • 6 mins",
+      "lectures": [
+        { "title": "GA Terms Deep Dive", "duration": "03:00" },
+        { "title": "A Note on GA4 Setup", "duration": "03:00" }
+      ]
+    },
+    {
+      "title": "How To Setup Google Analytics Like A Pro",
+      "summary": "5 Lectures • 15 mins",
+      "lectures": [
+        { "title": "Property & Streams", "duration": "03:00" },
+        { "title": "Events & Conversions", "duration": "03:00" },
+        { "title": "Audiences", "duration": "03:00" },
+        { "title": "Reports", "duration": "03:00" },
+        { "title": "Dashboards", "duration": "03:00" }
+      ]
+    }
+  ],
+
+  "author": {
+    "name": "Stephane Maarek",
+    "title": "AWS Certified Cloud Practitioner, Solutions Architect, Developer • Best Selling Instructor",
+    "bio": [
+      "Stephane is a solutions architect and software developer with a strong interest in Cloud & Big Data. He is a many-times best-selling instructor.",
+      "Recognized as an AWS Hero and AWS Certified Solutions Architect Professional & DevOps Pro.",
+      "He loves to teach people how to use AWS properly and to prepare for certifications.",
+      "In spare time he enjoys cooking, yoga, surfing, and traveling to awesome destinations!"
+    ],
+    "faq": [
+      { "q": "In which order should you learn?", "a": "Start with AWS Cloud Practitioner or AWS Solutions Architect Associate, then move to Developer Associate and SysOps. You can optionally add the AWS Certified AI Practitioner course." }
+    ]
+  },
+
+  "testimonials": [
+    {
+      "rating": 4.8,
+      "text": "This course was pivotal for my career. Real-world projects helped me build a portfolio and land a Junior Data Analyst role within two months.",
+      "name": "Wade Warren",
+      "affiliation": "Learning for U.S",
+      "avatar": "https://i.pravatar.cc/64?img=15"
+    },
+    {
+      "rating": 4.7,
+      "text": "Well-structured curriculum taking you from basics to advanced concepts with practical assignments. Best investment I’ve made.",
+      "name": "Jacob Jones",
+      "affiliation": "Learning for India",
+      "avatar": "https://i.pravatar.cc/64?img=56"
+    },
+    {
+      "rating": 4.5,
+      "text": "Perfect entry point. Hands-on projects were invaluable to build a practical portfolio. Highly recommended!",
+      "name": "Bessie Cooper",
+      "affiliation": "Learning for U.K",
+      "avatar": "https://i.pravatar.cc/64?img=33"
+    },
+    {
+      "rating": 4.5,
+      "text": "Great path to pivot into a more analytical role. Instructors explain complex topics clearly and the capstone is a highlight.",
+      "name": "Ronald Richards",
+      "affiliation": "Learning for India",
+      "avatar": "https://i.pravatar.cc/64?img=8"
+    }
+  ],
+
+  "related": [
+    { "thumb": "assets/images/illustration.png", "title": "Artificial Intelligence Professional Certificate", "duration": "24 Hours", "rating": 4.8, "reviews": 68388, "badge": "Highest Rated" },
+    { "thumb": "assets/images/illustration.png", "title": "Machine Learning A-Z: AI, Python & R", "duration": "24 Hours", "rating": 4.6, "reviews": 53843, "badge": "Highest Rated" },
+    { "thumb": "assets/images/illustration.png", "title": "The Data Science Course: Complete Bootcamp", "duration": "24 Hours", "rating": 4.5, "reviews": 39599, "badge": "Bestseller" },
+    { "thumb": "assets/images/illustration.png", "title": "Python for Data Science & ML Bootcamp", "duration": "45.5 Hours", "rating": 4.2, "reviews": 27659 },
+    { "thumb": "assets/images/illustration.png", "title": "Tableau for Beginners: Get Certified", "duration": "18 Hours", "rating": 4.0, "reviews": 25959 }
+  ]
+}

@@ -1,24 +1,33 @@
-<div class="course">
+<a class="course" [routerLink]="['/course', item.slug || 'google-data-analytics-course-1']">
   <div class="top">
     <img [src]="item.thumb" alt="course" />
-    <div class="badge" *ngIf="item.progress">
+    <div class="badge" *ngIf="item.progress; else newBadge">
       {{ item.progress }}% Complete
     </div>
+    <ng-template #newBadge>
+      <div class="badge" *ngIf="item.isNew">New Launch</div>
+    </ng-template>
   </div>
+
   <div class="bottom">
     <div class="title">{{ item.title }}</div>
+
+    <div class="skills">Skills you'll gain:</div>
+
     <div class="provider">
-      <img src="https://static-00.iconduck.com/assets.00/linkedin-icon-2048x2048-ya2v4b9h.png" alt="provider">
+      <img class="brand" src="assets/images/linkedin.png" alt="LinkedIn" />
       <span>{{ item.provider }}</span>
     </div>
-    <div class="meta">
-      <span>★ {{ item.rating }}</span>
-      <span>({{ item.reviews | number }} reviews | {{ item.enrolled }} Enrolled)</span>
+
+    <div class="meta rating">
+      ★ {{ item.rating }}
+      <span class="muted">({{ item.reviews | number }} reviews | {{ item.enrolled }} Enrolled)</span>
     </div>
+
     <div class="meta">
       <span>{{ item.level }}</span>
-      <span>•</span>
+      <span class="dot">•</span>
       <span>{{ item.duration }}</span>
     </div>
   </div>
-</div>
+</a>

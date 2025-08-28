@@ -7,3 +7,13 @@ body {
   background: #0f1720;
   color: #e5f2e7;
 }
+/* Card links should look like cards, not blue links */
+a.course,
+a.blog-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+a.course:visited,
+a.blog-card-link:visited {
+  color: inherit;
+}
