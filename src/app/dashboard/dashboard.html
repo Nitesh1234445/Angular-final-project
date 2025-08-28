@@ -5,17 +5,20 @@
   <app-filter-sidebar (filtersChange)="onFilters($event)"></app-filter-sidebar>
 
   <main class="content">
+    <!-- Banner -->
     <section class="banner">
       <div class="hero">LOREM IPSUM DOLOR</div>
       <div class="dots"><span></span><span></span><span></span><span></span></div>
     </section>
 
+    <!-- Stats -->
     <section class="stats">
       <ng-container *ngIf="stats$ | async as stats">
         <app-stat-card *ngFor="let s of stats" [label]="s.label" [value]="s.value"></app-stat-card>
       </ng-container>
     </section>
 
+    <!-- Last Viewed -->
     <section class="row">
       <div class="row-head">
         <h3>Last Viewed Courses</h3>
@@ -23,11 +26,19 @@
       </div>
       <div class="carousel">
         <ng-container *ngIf="lastViewed$ | async as items">
-          <app-course-card *ngFor="let item of items" [item]="item"></app-course-card>
+          <div class="course-item" *ngFor="let item of items">
+            <app-course-card [item]="item"></app-course-card>
+            <a
+              class="start-btn"
+              [routerLink]="['/learn', item.slug || 'google-data-analytics-course-1', 'lecture', 'lec-1']">
+              Start Learning
+            </a>
+          </div>
         </ng-container>
       </div>
     </section>
 
+    <!-- Newly Launched -->
     <section class="row">
       <div class="row-head">
         <h3>Newly Launched</h3>
@@ -35,11 +46,19 @@
       </div>
       <div class="carousel">
         <ng-container *ngIf="newlyLaunched$ | async as items">
-          <app-course-card *ngFor="let item of items" [item]="item"></app-course-card>
+          <div class="course-item" *ngFor="let item of items">
+            <app-course-card [item]="item"></app-course-card>
+            <a
+              class="start-btn"
+              [routerLink]="['/learn', item.slug || 'google-data-analytics-course-1', 'lecture', 'lec-1']">
+              Start Learning
+            </a>
+          </div>
         </ng-container>
       </div>
     </section>
 
+    <!-- Blogs -->
     <section class="row">
       <div class="row-head">
         <h3>Blogs</h3>

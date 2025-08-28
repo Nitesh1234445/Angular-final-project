@@ -1,0 +1,124 @@
+<app-header></app-header>
+
+<div class="learn-wrap" *ngIf="data() as d">
+  <!-- Left: Player + Tabs -->
+  <div class="left">
+    <!-- Player Area -->
+    <div class="player" [style.height.px]="607">
+      <!-- VIDEO -->
+      <video *ngIf="current()?.type === 'video'"
+             #videoEl
+             class="video"
+             [src]="current()?.src || ''"
+             (loadedmetadata)="onLoadedMetadata()"
+             (timeupdate)="onTimeUpdate()"
+             playsinline></video>
+
+      <!-- PDF -->
+      <iframe *ngIf="current()?.type === 'pdf' && pdfSafeUrl()"
+              class="pdf"
+              [src]="pdfSafeUrl()"></iframe>
+
+      <!-- TEXT -->
+      <div *ngIf="current()?.type === 'text'" class="text-content">
+        <h3>{{ current()?.title }}</h3>
+        <p>{{ current()?.textContent }}</p>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls" *ngIf="current()?.type !== 'pdf'">
+        <button (click)="togglePlay()">{{ playing() ? 'Pause' : 'Play' }}</button>
+
+        <div class="time">
+          <span>{{ fmt(currentTime()) }}</span>
+          <input type="range" min="0" [max]="duration()" [value]="currentTime()" (input)="onScrub($event)">
+          <span>{{ fmt(duration()) }}</span>
+        </div>
+
+        <label class="vol">
+          Vol
+          <input type="range" min="0" max="1" step="0.01" [value]="volume()" (input)="setVolume(+$any($event.target).value)">
+        </label>
+
+        <label class="rate">
+          Speed
+          <select [value]="rate()" (change)="setRate(+$any($event.target).value)">
+            <option [value]="0.5">0.5x</option>
+            <option [value]="1">1x</option>
+            <option [value]="1.25">1.25x</option>
+            <option [value]="1.5">1.5x</option>
+            <option [value]="2">2x</option>
+          </select>
+        </label>
+
+        <button (click)="fullScreen()">Fullscreen</button>
+        <button (click)="current() && markCompleted(current()!)">Mark Complete</button>
+      </div>
+    </div>
+
+    <!-- Tabs (Overview / Author / Testimonials) reusing Milestone 2 data -->
+    <div class="tabs" *ngIf="details$ | async as c">
+      <nav>
+        <button [class.active]="tab()==='overview'" (click)="tab.set('overview')">Overview</button>
+        <button [class.active]="tab()==='author'" (click)="tab.set('author')">Author Details</button>
+        <button [class.active]="tab()==='testimonials'" (click)="tab.set('testimonials')">Testimonials</button>
+      </nav>
+
+      <section *ngIf="tab()==='overview'" class="panel">
+        <h3>What you'll learn</h3>
+        <ul class="bullets">
+          <li *ngFor="let l of c.overview.learn">{{ l }}</li>
+        </ul>
+
+        <h3>Skills you'll gain</h3>
+        <div class="chips">
+          <span class="chip" *ngFor="let s of c.overview.skills">{{ s }}</span>
+        </div>
+
+        <h3>Description</h3>
+        <p class="desc">{{ c.overview.description }}</p>
+      </section>
+
+      <section *ngIf="tab()==='author'" class="panel">
+        <h3>{{ c.author.name }}</h3>
+        <div class="author-title">{{ c.author.title }}</div>
+        <div class="bio"><p *ngFor="let p of c.author.bio">{{ p }}</p></div>
+      </section>
+
+      <section *ngIf="tab()==='testimonials'" class="panel">
+        <div class="tgrid">
+          <app-testimonial-card *ngFor="let t of c.testimonials" [item]="t"></app-testimonial-card>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Right: Curriculum panel (accordion) -->
+  <aside class="right">
+    <div class="curr">
+      <h3>Course Content</h3>
+
+      <div class="sec" *ngFor="let sec of sections(); let i = index">
+        <div class="sec-head" (click)="toggleSection(i)">
+          <span class="caret" [class.open]="expanded()[i]"></span>
+          <div class="t">
+            <div class="title">Section {{i+1}}: {{ sec.title }}</div>
+            <div class="sum">{{ sec.summary }}</div>
+          </div>
+        </div>
+
+        <div class="sec-body" *ngIf="expanded()[i]">
+          <div class="lec"
+               [class.active]="current()?.id === lec.id"
+               [class.done]="isCompleted(lec)"
+               *ngFor="let lec of sec.lectures"
+               (click)="setLecture(lec)">
+            <span class="checkbox" [class.checked]="isCompleted(lec)"></span>
+            <div class="lt">{{ lec.title }}</div>
+            <div class="dur">{{ lec.duration }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>

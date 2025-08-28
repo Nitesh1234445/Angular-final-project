@@ -1,6 +1,7 @@
 
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';   
 import { HeaderComponent } from '../header/header';
 import { StatCardComponent } from '../components/stat-card/stat-card';
 import { CourseCardComponent } from '../components/course-card/course-card';
@@ -19,7 +20,7 @@ import { FilterSidebarComponent } from '../components/filter-sidebar/filter-side
   imports: [
     CommonModule, HeaderComponent, StatCardComponent,
     CourseCardComponent, BlogCardComponent, AsyncPipe, NgFor,
-    FilterSidebarComponent // 👈 add this
+    FilterSidebarComponent,RouterModule
   ],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.scss']

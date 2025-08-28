@@ -1,0 +1,35 @@
+{
+  "courseId": "google-data-analytics-course-1",
+  "title": "Google Data Analytics",
+  "sections": [
+    {
+      "title": "Introduction",
+      "summary": "5 Lectures • 15 mins",
+      "lectures": [
+        { "id": "lec-1", "title": "Course Overview", "duration": "03:00", "type": "video", "src": "assets/videos/sample-1.mp4" },
+        { "id": "lec-2", "title": "Google Analytics Overview", "duration": "03:00", "type": "video", "src": "assets/videos/sample-2.mp4" },
+        { "id": "lec-3", "title": "How to Set Up a GA Demo Account", "duration": "03:00", "type": "pdf",   "pdfUrl": "assets/docs/ga-demo.pdf" },
+        { "id": "lec-4", "title": "GA Dictionary – Top 50 Terms", "duration": "03:00", "type": "text",  "textContent": "Key GA terms and definitions to know before you start." },
+        { "id": "lec-5", "title": "A Note on GA4 Setup", "duration": "03:00", "type": "video", "src": "assets/videos/sample-3.mp4" }
+      ]
+    },
+    {
+      "title": "How To Analyze Reports & Increase Traffic And Sales",
+      "summary": "3 Lectures • 9 mins",
+      "lectures": [
+        { "id": "lec-6", "title": "Acquisition Reports", "duration": "03:00", "type": "video", "src": "assets/videos/sample-1.mp4" },
+        { "id": "lec-7", "title": "Engagement Reports", "duration": "03:00", "type": "video", "src": "assets/videos/sample-2.mp4" },
+        { "id": "lec-8", "title": "Monetization Reports", "duration": "03:00", "type": "video", "src": "assets/videos/sample-3.mp4" }
+      ]
+    },
+    {
+      "title": "More Google Analytics Tips And Tricks",
+      "summary": "3 Lectures • 9 mins",
+      "lectures": [
+        { "id": "lec-9", "title": "Custom Dimensions", "duration": "03:00", "type": "text", "textContent": "Create and use custom dimensions for deeper insights." },
+        { "id": "lec-10", "title": "UTM Best Practices", "duration": "03:00", "type": "pdf",  "pdfUrl": "assets/docs/utm-best-practices.pdf" },
+        { "id": "lec-11", "title": "Dashboards", "duration": "03:00", "type": "video", "src": "assets/videos/sample-2.mp4" }
+      ]
+    }
+  ]
+}

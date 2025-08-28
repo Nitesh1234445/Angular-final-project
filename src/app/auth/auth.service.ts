@@ -1,4 +1,5 @@
 import { Injectable, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface RegisterDto {
   username: string;
@@ -8,6 +9,8 @@ export interface RegisterDto {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  constructor(private router: Router) {}
+
   // very simple demo state
   currentUser = signal<{ username: string; email: string } | null>(null);
 
@@ -35,8 +38,13 @@ export class AuthService {
   }
 
   logout() {
+    // clear auth state
     this.currentUser.set(null);
     localStorage.removeItem('auth-session');
     localStorage.removeItem('auth-remember');
+
+    // redirect to HOME page
+    this.router.navigate(['/']); // if your root redirects to login, that's fine too
+    // If you prefer explicitly: this.router.navigate(['/auth/login']);
   }
 }
